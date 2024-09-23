@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michelle - Comfort</title>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-animation-component@^4.1.1/dist/aframe-animation-timeline-component.min.js"></script>-->
+
+    
+
+    
+    
+    <style>
+        #wrapper {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+
+        .a-enter-vr,
+        .a-enter-ar {
+            all: unset;
+        }
+
+        .a-enter-vr {
+            visibility: hidden;
+        }
+
+        .a-enter-ar-button {
+            bottom: 20px;
+            right: 15px;
+        }
+      
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="wrapper"  >
+ 
+        <a-scene webxr >
+
+
+
+            <!--ASSETS START-->
+            <a-assets>
+
+
+
+                <!--ITEMS START-->
+              
+                <!--210630: nur eine Komfortzone, die mit Opacity-Ani!--> 
+                
+                
+                <a-asset-item id="Tblack" src="assets/28-black.glb"></a-asset-item>
+                <a-asset-item id="Tstar" src="assets/stars-25-01.glb"></a-asset-item>
+                <a-asset-item id="middle" src="assets/28-universe.glb"></a-asset-item>
+                <a-asset-item id="middle2" src="assets/28-pinkblue.glb"></a-asset-item>
+                <a-asset-item id="last-01" src="assets/25-blau.glb"></a-asset-item>
+                <a-asset-item id="last-02" src="assets/28-kunterbunt-02.glb"></a-asset-item>
+
+                <a-asset-item id="01-star" src="assets/01-star.glb"></a-asset-item>
+                <a-asset-item id="02-emblem" src="assets/02-emblem.glb"></a-asset-item>
+                <a-asset-item id="03-planet" src="assets/03-planet.glb"></a-asset-item>
+                <a-asset-item id="04-eye" src="assets/04-eye.glb"></a-asset-item>
+                <a-asset-item id="05-moon" src="assets/05-moon.glb"></a-asset-item>
+                <!--ITEMS END-->
+                
+           
+                 <!--AUDIO ASSET START-->
+                
+                  <audio id="s1i" src="assets/sound/15-coldwind-01.wav" ></audio>
+                  <audio id="s2" src="assets/sound/01-crooked-wonderland-looped.wav" ></audio>
+                  <audio id="s4" src="assets/sound/01-static-05-phonecalldimension.wav" ></audio>
+                  <audio id="s5" src="assets/sound/01-glitch-kurz.wav" ></audio>
+                <audio id="s9" src="assets/sound/01-voegel-wdh.wav" ></audio>
+                <audio id="s10" src="assets/sound/01-static-03.wav" ></audio>
+                
+                
+                
+                <!--AUDIO ASSET END-->
+            
+            </a-assets>
+            <!--ASSETS END-->
+
+            
+<!--SOUND_EMPTIES START-->
+<!--Die entity-ids dienen nur der Orientierung im Inspector von A-Frame -->
+            
+           <a-entity id="soundParent1"
+                     position="0 0 0"
+                     rotation=" 0 0 0"
+                     
+                     
+                      animation__rotate1=" property:rotation; dur:20000; from: 0 0 0; to: 0 360 0;loop: true; easing:linear;"
+                     >
+            <a-entity id="coldwind"
+                    position="0 1.5 0"
+                   scale="0.1 3 0.1"
+                    
+                    sound="src:#s1i; autoplay:true;  loop:true; 
+                           rolloffFactor: 6;
+                           refDistance: 0.5; 
+                           volume: 2; "
+                    ></a-entity>
+            
+            
+            <a-entity id="wonderland"
+                    position="0.00626 1.6 1.8"
+                    scale="0.1 0.1 0.1"
+                    
+                    sound="src:#s2; autoplay:true;  loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5;
+                           volume: 2;"
+                    ></a-entity>
+           
+            
+            <a-entity id="miceandrain"
+                    position="1.7 1.6 0"
+                    scale="0.1 0.1 0.1"
+                    
+                    sound="src:#s4; autoplay:true;  loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5;
+                           volume: 2; "
+                    ></a-entity>
+            
+             <a-entity id="phonecalldimension"
+                    position="0 1.6 -1.5"
+                     scale="0.1 0.1 0.1"
+                    
+                    sound="src:#s9; autoplay:true;  loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5;
+                           volume: 2; "
+                    ></a-entity>
+            
+            
+           
+             <a-entity id="glitchLang"
+                    position="-1.7 1.6 0.04604"
+                     scale="0.1 0.1 0.1"
+                   
+                    sound="src:#s5; autoplay:true; loop:true; 
+                           rolloffFactor:7;
+                           refDistance: 0.5; 
+                           volume: 2; "
+                    ></a-entity>
+            </a-entity>
+            
+            <!--SOUNDPARENT2 START-->
+            
+            <a-entity id="soundParent2"
+                     position="0 0 0"
+                     rotation=" 0 40 0"
+                      animation__rotate1=" property:rotation; dur:20000; from: 0 0 0; to: 0 -360 0;loop: true; easing:linear;"
+                     >
+            
+            
+            <a-entity id="wonderland"
+                    position="0.00626 1.6 1.8"
+                    scale="0.1 0.1 0.3"
+                     
+                    sound="src:#s4; autoplay:true; loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5;
+                           volume: 2;"
+                    ></a-entity>
+           
+            
+            <a-entity id="miceandrain"
+                    position="1.7 1.6 0"
+                    scale="0.1 0.1 0.1"
+              
+                    sound="src:#s2; autoplay:true;  loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5;
+                           volume: 2; "
+                    ></a-entity>
+            
+             <a-entity id="phonecalldimension"
+                    position="0 1.6 -1.5"
+                     scale="0.1 0.1 0.1"
+                    
+                    sound="src:#s9; autoplay:true;  loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5;
+                           volume: 2; "
+                    ></a-entity>
+            
+            
+           
+             <a-entity id="glitchLang"
+                    position="-1.7 1.6 0.04604"
+                     scale="0.1 0.1 0.1"
+                    
+                    sound="src:#s10; autoplay:true;  loop:true; 
+                           rolloffFactor: 7;
+                           refDistance: 0.5; 
+                           volume: 2; "
+                    ></a-entity>
+            </a-entity>
+             
+            
+        
+<!--SOUND_EMPTIES END-->
+            
+            
+            
+        
+<!--SCALE-HELPERS START-->
+            
+         
+            
+             <!--NEW-K-DUMMY 1-CONE START-->
+               <a-entity id="komfortParentRotation" position="0 1.5 0" 
+                          rotation="0 180 0" 
+                    animation__k=" property:rotation; dur:800000; from: 0 0 0; to: 0 360 0;loop:-1; easing:linear">
+            
+                     <a-entity id="komfortParentScale"
+                         position="0 0 0"
+                         animation__kschrumpf="property:scale; dur:20000; to:0.2 1 0.2 ;">
+                         
+                         
+                    
+                               <a-cone id="fading-test" 
+                                material=" color:#ebe575; transparent: true; opacity: 1; side:double; shader:flat;"
+                                position="0 0.01 0 "
+                                scale=" 2 3 2"
+                                
+                                animation__fade="delay:2000; property:opacity; dur:18000; from: 1; to: 0.3; "> </a-cone>
+                    
+                    
+                 
+                    </a-entity>
+                </a-entity>
+        
+<!--SCALE-HELPERS END-->
+
+          
+            
+            <!--OBJECTS START-->
+
+            <!--SPHERES-->
+            <a-entity id="sphereParent" position="0 1 0">
+                
+                <!--scale="6 4 6"-->
+
+                <a-entity gltf-model="#Tblack" position="0 0 0"
+                    animation__black=" property:rotation; dur:20000; from: 0 0 0; to: 0 360 0;loop: true; easing:easeOutQuint;">
+                </a-entity>
+
+
+                <a-entity gltf-model="#last-01" position="0 0 0"
+                    animation__black=" property:rotation; dur:40000; delay:1000; from: 0 0 0; to: 0 -360 0;loop: true; easing:easeInOutCirc; ">
+                </a-entity>
+
+                <a-entity gltf-model="#last-02" position="0 0 0"
+                    animation__black=" property:rotation; dur:8000; from: 0 0 0; to: 0 360 0;loop: true; easing:linear;   ">
+                </a-entity>
+
+
+
+                <a-entity gltf-model="#middle" position="0 0 0"
+                    animation__middle=" property:rotation; dur:30000; from: 0 0 0; to: 0 -360 0;loop: true; easing: easeOutExpo; ">
+                </a-entity>
+
+                <a-entity gltf-model="#middle2" position="0 0 0"
+                    animation__middle=" property:rotation; dur:6000; from: 0 0 0; to: 0 360 0;loop: true; easing:easeInElastic ;  ">
+                </a-entity>
+
+                <a-entity gltf-model="#Tstar" position="0 0 0"
+                    animation__stars=" property:rotation; dur:8000; from: 0 0 0; to: 0 360 0;loop: true;  easing:easeInOutQuad ; ">
+                </a-entity>
+                
+                
+                
+                </a-entity>
+
+               
+                   
+
+                <!--ANAMORPHICS-->
+                <a-entity id="anamorph-parent" position="0 1 0" >
+
+
+                    <a-entity gltf-model="#01-star" position="-1.5 0.6 0 " rotation=" 0 -40 -30"></a-entity>
+                    <a-entity gltf-model="#02-emblem" position="0 0.5 2 " rotation=" 0 60 5"></a-entity>
+                    <a-entity gltf-model="#03-planet" position="1.4 0.6 0 " rotation=" 0 -90 10"></a-entity>
+                    <a-entity gltf-model="#04-eye" position="-0.7 0 -1.3 " rotation=" 0 -6.0 0"></a-entity>
+                    <a-entity gltf-model="#05-moon" position="0.7 1.1 1 " rotation=" 0 180 -20"></a-entity>
+                </a-entity>
+
+            
+            <!--OBJECTS END-->
+
+        </a-scene>
+    </div>
+</body>
+
+</html>
